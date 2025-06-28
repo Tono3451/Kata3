@@ -7,6 +7,11 @@ public class CsvPlayerDeserializer implements PlayerDeserializer {
     }
 
     private Player deserialize(String[] values) {
-        return new Player(values[1], values[2], values[3], values[4]);
+        return new Player(values[1], values[2], removeQuotes(values[3]), values[4]);
+    }
+
+    private String removeQuotes(String value) {
+        value = value.replace("\"", "");
+        return value;
     }
 }
