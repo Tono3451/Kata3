@@ -1,5 +1,6 @@
 package software.ulpgc.es;
 
+import software.ulpgc.es.control.ToggleChartCommand;
 import software.ulpgc.es.model.CsvPlayerDeserializer;
 import software.ulpgc.es.model.FilePlayerLoader;
 import software.ulpgc.es.model.Player;
@@ -17,6 +18,7 @@ public class Main {
         List<Player> players = new FilePlayerLoader(file, new CsvPlayerDeserializer()).load();
 
         MainFrame mainFrame = new MainFrame();
+        mainFrame.put("toggle", new ToggleChartCommand());
         mainFrame.setVisible(true);
     }
 }
